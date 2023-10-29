@@ -4,10 +4,7 @@ months = 10  # Количество месяцев, которое планир�
 increase = 0.03  # Ежемесячный рост цен
 
 money_capital = 0
-for i in range(months, 1, -1):
-    spend1 = spend
-    for j in range(2, i + 1):
-        spend1 = spend1 * (increase + 1)
+for i in range(0, months):
+    spend1 = spend * (increase+1) ** i
     money_capital = money_capital + spend1 - salary
-money_capital = money_capital + spend - salary
-print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", int(money_capital) + 1)
+print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", round(money_capital, 2))
